@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="">
+  <ClassDiagramComponents>
+    <Class name="FDMController" package="fds.controllers" visibility="public" xPosition="47.0" yPosition="348.0">
+      <Fields>
+        <Field name="http" type="FDSHttpRequestHandler" visibility="private" isFinal="true"/>
+        <Field name="database" type="DatabaseHandler" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="checkFault" returnType="JSONArray" visibility="public"/>
+        <Method name="sendFault" returnType="JSONObject" visibility="private"/>
+        <Method name="updateFaultKnowledge" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DatabaseHandler" package="fds.model" visibility="public" xPosition="39.0" yPosition="583.0">
+      <Fields>
+        <Field name="DataSource" type="MysqlDataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="getFaultKnowledge" returnType="JSONArray" visibility="public"/>
+        <Method name="saveFault" returnType="JSONObject" visibility="public"/>
+        <Method name="getTasks" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FunctionController" package="simulator.controllers" visibility="public" xPosition="489.0" yPosition="648.0">
+      <Fields>
+        <Field name="sollWaterLevel" type="double" visibility="protected"/>
+        <Field name="sollWaterTemp" type="double" visibility="protected"/>
+        <Field name="oldTemperature" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="AirPumpingProcess" returnType="void" visibility="protected"/>
+        <Method name="FillTank2Process" returnType="void" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="SimulatorCenterController" package="simulator.controllers" visibility="public" xPosition="277.0" yPosition="318.0">
+      <Fields>
+        <Field name="FDMGui" type="FDMGUI" visibility="private" isFinal="true"/>
+        <Field name="application" type="Simulator" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="HeatWater3L45" returnType="void" visibility="public"/>
+        <Method name="PourWater5L" returnType="void" visibility="public"/>
+        <Method name="Stop" returnType="void" visibility="public"/>
+        <Method name="Reset" returnType="void" visibility="public"/>
+        <Method name="executeStrategy" returnType="void" visibility="public"/>
+        <Method name="checkConnection" returnType="boolean" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TaskController" package="simulator.controllers" visibility="public" xPosition="277.0" yPosition="613.0">
+      <Fields>
+        <Field name="taskList" type="List&lt;Integer&gt;" visibility="public" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="AutomaticCycling" returnType="void" visibility="public"/>
+        <Method name="Water3L45" returnType="void" visibility="public"/>
+        <Method name="Water5L" returnType="void" visibility="public"/>
+        <Method name="startClean" returnType="void" visibility="public"/>
+        <Method name="finishTaskStop" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AddFaultGUI" package="simulator.guis" visibility="public" xPosition="551.0" yPosition="415.0">
+      <Fields>
+        <Field name="AddFaultGUI" type="JFrame" visibility="package"/>
+        <Field name="faultType" type="String" visibility="package"/>
+        <Field name="faultParam" type="String" visibility="package"/>
+        <Field name="FaultLocation" type="JLabel" visibility="package"/>
+        <Field name="FaultValue" type="JLabel" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="setFaultState" returnType="void" visibility="public"/>
+        <Method name="setFaultValue" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TemperatureSensor" package="simulator.guis.components" visibility="public" xPosition="545.0" yPosition="91.0">
+      <Fields>
+        <Field name="temperature" type="double" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getTemperature" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Gui" package="simulator.guis" visibility="public" xPosition="545.0" yPosition="236.0">
+      <Fields>
+        <Field name="Sensor" type="Component" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="setTemperature" returnType="double" visibility="public"/>
+        <Method name="getTemperature" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Simulator" package="simulator" visibility="public" xPosition="295.0" yPosition="91.0">
+      <Fields>
+        <Field name="Application" type="Simulator" visibility="private"/>
+        <Field name="FDMGui" type="FDMGUI" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="init" returnType="void" visibility="public"/>
+        <Method name="startTwoTankSystem" returnType="void" visibility="public"/>
+        <Method name="startFDMGUI" returnType="void" visibility="public"/>
+        <Method name="main" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FDSHttpRequestHandler" package="simulator.utils" visibility="public" xPosition="59.0" yPosition="91.0">
+      <Fields>
+        <Field name="client" type="HttpClient" visibility="private" isFinal="true"/>
+        <Field name="cookieStore" type="CookieStore" visibility="private" isFinal="true"/>
+        <Field name="httpContext" type="HttpContext" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="postRuntimeData" returnType="JSONObject" visibility="public"/>
+        <Method name="reportFault" returnType="JSONObject" visibility="public"/>
+        <Method name="connectionStatus" returnType="JSONObject" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="simulator.controllers.SimulatorCenterController" target="simulator.guis.Gui" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="add fault" source="simulator.controllers.SimulatorCenterController" target="simulator.guis.AddFaultGUI" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="gui" source="simulator.controllers.SimulatorCenterController" target="simulator.guis.Gui" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="simulator.controllers.SimulatorCenterController" target="simulator.Simulator" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="simulator.controllers.SimulatorCenterController" target="fds.model.DatabaseHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="simulator.controllers.SimulatorCenterController" target="simulator.controllers.TaskController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="" source="simulator.guis.Gui" target="simulator.guis.components.TemperatureSensor" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="" source="simulator.controllers.FunctionController" target="simulator.controllers.SimulatorCenterController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="simulator.controllers.TaskController" target="simulator.controllers.FunctionController"/>
+    <HasRelation name="has" source="simulator.guis.AddFaultGUI" target="simulator.controllers.SimulatorCenterController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="databaseHandler" source="fds.controllers.FDMController" target="fds.model.DatabaseHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="simulator.controllers.SimulatorCenterController" target="simulator.guis.AddFaultGUI" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="simulator.controllers.SimulatorCenterController" target="fds.controllers.FDMController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="fds.controllers.FDMController" target="simulator.controllers.SimulatorCenterController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="simulator.guis.Gui" target="simulator.controllers.SimulatorCenterController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="http" source="simulator.controllers.SimulatorCenterController" target="simulator.utils.FDSHttpRequestHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="http" source="fds.controllers.FDMController" target="simulator.utils.FDSHttpRequestHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
