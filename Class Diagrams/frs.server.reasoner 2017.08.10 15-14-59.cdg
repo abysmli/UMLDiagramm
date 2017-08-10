@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="frs.server.reasoner">
+  <ClassDiagramComponents>
+    <Class name="FaultLocalization" package="frs.server.reasoner" visibility="public" xPosition="337.0" yPosition="592.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getFaultLocation" returnType="JSONObject" visibility="public"/>
+        <Method name="symptomTypeGenerate" returnType="JSONObject" visibility="private"/>
+        <Method name="symptomGeneration" returnType="JSONObject" visibility="private"/>
+        <Method name="symptomComparation" returnType="JSONObject" visibility="private"/>
+        <Method name="checkComponentModel" returnType="JSONObject" visibility="private"/>
+        <Method name="faultDiagnosisResultAnalysis" returnType="JSONObject" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="FunctionAnalysis" package="frs.server.reasoner" visibility="public" xPosition="721.0" yPosition="330.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="analysis" returnType="String" visibility="public">
+          <Argument type="String" name="mFaultLocation"/>
+        </Method>
+        <Method name="treeDepthFirstSearchLoop" returnType="int" visibility="private">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="findTreeTopPoint" returnType="void" visibility="private"/>
+        <Method name="indentifyNotaffectedFunctions" returnType="void" visibility="private"/>
+        <Method name="indentifyRelatedFunctions" returnType="void" visibility="private"/>
+        <Method name="indentifyAvailableFunctions" returnType="void" visibility="private"/>
+        <Method name="requirementsAnalysis" returnType="void" visibility="private"/>
+        <Method name="requirementsConsequence" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="ReconfCommandGenerator" package="frs.server.reasoner" visibility="public" xPosition="599.0" yPosition="587.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="generate" returnType="JSONObject" visibility="public"/>
+        <Method name="ReconfCommandGenerator" returnType="JSONArray" visibility="private"/>
+        <Method name="RedundanzAnalyse" returnType="JSONObject" visibility="private"/>
+        <Method name="TaskAnalysis" returnType="JSONObject" visibility="private"/>
+        <Method name="SpecialCodeGenerator" returnType="String" visibility="private"/>
+        <Method name="PersonalData" returnType="JSONObject" visibility="private"/>
+        <Method name="SpecificMeasures" returnType="JSONObject" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="FaultDatabaseHandler" package="" visibility="public" xPosition="775.0" yPosition="72.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Connections" returnType="void" visibility="public"/>
+        <Method name="getFaultKnowledge" returnType="JSONArray" visibility="public"/>
+        <Method name="saveFaultKnowledge" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SystemDatabaseHandler" package="" visibility="public" xPosition="298.0" yPosition="54.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Connections" returnType="void" visibility="public"/>
+        <Method name="getReconfigurations" returnType="JSONArray" visibility="public"/>
+        <Method name="getRequirements" returnType="JSONArray" visibility="public"/>
+        <Method name="getFunctions" returnType="JSONArray" visibility="public"/>
+        <Method name="getComponents" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SymptomDatabaseHandler" package="" visibility="public" xPosition="516.0" yPosition="10.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="Connections" returnType="void" visibility="public"/>
+        <Method name="getSymptomSubsystem" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomComp" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FDSSimulatorRouter" package="" visibility="public" xPosition="190.0" yPosition="441.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="reportFault" returnType="Response" visibility="public"/>
+        <Method name="postRuntimeData" returnType="Response" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FRSGUIRouter" package="" visibility="public" xPosition="190.0" yPosition="294.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getFaults" returnType="Response" visibility="public"/>
+        <Method name="getAnalysisProcedure" returnType="Response" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MainDFHRS" package="" visibility="public" xPosition="455.0" yPosition="363.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="handleFault" returnType="JSONObject" visibility="public"/>
+        <Method name="handleUnknownFault" returnType="JSONObject" visibility="public"/>
+        <Method name="faultPreTreatment" returnType="void" visibility="public"/>
+        <Method name="databaseTransfer" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="has" source="MainDFHRS" target="frs.server.reasoner.FunctionAnalysis" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="MainDFHRS" target="frs.server.reasoner.FaultLocalization" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="MainDFHRS" target="frs.server.reasoner.ReconfCommandGenerator" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="FRSGUIRouter" target="MainDFHRS" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="FDSSimulatorRouter" target="MainDFHRS" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="MainDFHRS" target="SystemDatabaseHandler" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="MainDFHRS" target="FaultDatabaseHandler" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="has" source="MainDFHRS" target="SymptomDatabaseHandler" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

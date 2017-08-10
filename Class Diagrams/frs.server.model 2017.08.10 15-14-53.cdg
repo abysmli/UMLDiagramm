@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="frs.server.model">
+  <ClassDiagramComponents>
+    <Class name="FaultDatabaseHandler" package="frs.server.model" visibility="public" xPosition="146.0" yPosition="20.0">
+      <Fields>
+        <Field name="dataSource" type="DataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+        <Field name="stmt" type="Statement" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="releaseConnections" returnType="void" visibility="private"/>
+        <Method name="getFaultKnowledge" returnType="JSONArray" visibility="public"/>
+        <Method name="saveFaultKnowledge" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SymptomDatabaseHandler" package="frs.server.model" visibility="public" xPosition="678.0" yPosition="20.0">
+      <Fields>
+        <Field name="dataSource" type="DataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+        <Field name="stmt" type="Statement" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="releaseConnections" returnType="void" visibility="private"/>
+        <Method name="getSymptomSubsystem" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomAirpressure" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomHeating" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomInflow" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomPumping" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SystemDatabaseHandler" package="frs.server.model" visibility="public" xPosition="407.0" yPosition="20.0">
+      <Fields>
+        <Field name="dataSource" type="DataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+        <Field name="stmt" type="Statement" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="releaseConnections" returnType="void" visibility="private"/>
+        <Method name="getReconfigurations" returnType="JSONArray" visibility="public"/>
+        <Method name="getRequirements" returnType="JSONArray" visibility="public"/>
+        <Method name="getFunctions" returnType="JSONArray" visibility="public"/>
+        <Method name="getComponents" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

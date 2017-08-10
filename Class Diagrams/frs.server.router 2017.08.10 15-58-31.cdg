@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="frs.server.router">
+  <ClassDiagramComponents>
+    <Class name="FDSSimulatorRouter" package="frs.server.router" visibility="public" xPosition="61.0" yPosition="75.0">
+      <Fields>
+        <Field name="faultController" type="FaultController" visibility="package"/>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="reportFault" returnType="Response" visibility="public"/>
+        <Method name="postRuntimeData" returnType="Response" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FRSGUIRouter" package="frs.server.router" visibility="public" xPosition="46.0" yPosition="331.0">
+      <Fields>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getFaults" returnType="Response" visibility="public"/>
+        <Method name="getAnalysisProcedure" returnType="Response" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

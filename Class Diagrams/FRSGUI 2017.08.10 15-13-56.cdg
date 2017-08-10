@@ -1,0 +1,945 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="FRSGUI">
+  <ClassDiagramComponents>
+    <Class name="ChartViewContorller" package="frs.gui.controllers" visibility="public" xPosition="161.0" yPosition="322.0">
+      <Fields>
+        <Field name="range" type="int" visibility="package"/>
+        <Field name="upperBound" type="int" visibility="package"/>
+        <Field name="series" type="XYChart.Series&lt;Number, Number&gt;" visibility="package"/>
+        <Field name="xAxis" type="NumberAxis" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="pane"/>
+          <Argument type="String" name="title"/>
+          <Argument type="String" name="xAxisTitle"/>
+          <Argument type="String" name="yAxisTitle"/>
+          <Argument type="int" name="range"/>
+          <Argument type="double" name="LayoutX"/>
+          <Argument type="double" name="LayoutY"/>
+          <Argument type="double" name="Width"/>
+          <Argument type="double" name="Height"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="update" returnType="void" visibility="public">
+          <Argument type="double" name="value"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ComponentModelViewController" package="frs.gui.controllers" visibility="public" xPosition="1869.0" yPosition="767.0">
+      <Fields>
+        <Field name="pane" type="AnchorPane" visibility="package"/>
+        <Field name="mTables" type="JSONObject" visibility="package"/>
+        <Field name="componentModel" type="Map&lt;Integer, List&lt;Integer&gt;&gt;" visibility="package"/>
+        <Field name="functionModel" type="Map&lt;Integer, List&lt;Integer&gt;&gt;" visibility="package"/>
+        <Field name="bigBoxLabelHeight" type="double" visibility="package"/>
+        <Field name="marginOfBigBox" type="double" visibility="package"/>
+        <Field name="smallBoxWidth" type="double" visibility="package"/>
+        <Field name="smallBoxHeight" type="double" visibility="package"/>
+        <Field name="marginOfBoxHorizontal" type="double" visibility="package"/>
+        <Field name="marginOfBoxVertical" type="double" visibility="package"/>
+        <Field name="numberOfBoxInRow" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="pane"/>
+          <Argument type="JSONObject" name="mTables"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="draw" returnType="void" visibility="public"/>
+        <Method name="parseModel" returnType="void" visibility="private"/>
+        <Method name="roundUp" returnType="int" visibility="private">
+          <Argument type="int" name="num"/>
+          <Argument type="int" name="divisor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ComponentsAvailabilityViewController" package="frs.gui.controllers" visibility="public" xPosition="1450.0" yPosition="220.0">
+      <Fields>
+        <Field name="mAllDataTable" type="JSONObject" visibility="private"/>
+        <Field name="components_availability_panel" type="AnchorPane" visibility="package"/>
+        <Field name="firstRunFlag" type="boolean" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="components_availability_panel"/>
+          <Argument type="JSONObject" name="mAllDataTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="refresh" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DatabaseTableViewController" package="frs.gui.controllers" visibility="public" xPosition="550.0" yPosition="1779.0">
+      <Fields>
+        <Field name="allDataTable" type="JSONObject" visibility="package"/>
+        <Field name="faultData" type="ObservableList&lt;Fault_List&gt;" visibility="package"/>
+        <Field name="functionData" type="ObservableList&lt;Function_List&gt;" visibility="package"/>
+        <Field name="subfunctionData" type="ObservableList&lt;Subfunction_List&gt;" visibility="package"/>
+        <Field name="mainfunctionData" type="ObservableList&lt;Mainfunction_List&gt;" visibility="package"/>
+        <Field name="componentData" type="ObservableList&lt;Component_List&gt;" visibility="package"/>
+        <Field name="subsystemData" type="ObservableList&lt;Subsystem_List&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="ObservableList&lt;Fault_List&gt;" name="faultData"/>
+          <Argument type="ObservableList&lt;Function_List&gt;" name="functionData"/>
+          <Argument type="ObservableList&lt;Subfunction_List&gt;" name="subfunctionData"/>
+          <Argument type="ObservableList&lt;Mainfunction_List&gt;" name="mainfunctionData"/>
+          <Argument type="ObservableList&lt;Component_List&gt;" name="componentData"/>
+          <Argument type="ObservableList&lt;Subsystem_List&gt;" name="subsystemData"/>
+          <Argument type="JSONObject" name="allDataTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="refresh" returnType="void" visibility="public"/>
+        <Method name="setMainfunctions" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="mMainfunctions"/>
+        </Method>
+        <Method name="setSubsystems" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="mSubsystems"/>
+        </Method>
+        <Method name="setComponents" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="mComponents"/>
+        </Method>
+        <Method name="setFunctions" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="mFunctions"/>
+        </Method>
+        <Method name="setSubfunctions" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="mSubfunctions"/>
+        </Method>
+        <Method name="setFaults" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="mFaults"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DemonstrationController" package="frs.gui.controllers" visibility="public" xPosition="1900.0" yPosition="1000.0">
+      <Fields>
+        <Field name="demonstration_panel" type="AnchorPane" visibility="package"/>
+        <Field name="demonstration_scroll_panel" type="ScrollPane" visibility="package"/>
+        <Field name="animation_panel" type="Pane" visibility="package"/>
+        <Field name="function_analysis_panel" type="Pane" visibility="package"/>
+        <Field name="requirement_analysis_panel" type="Pane" visibility="package"/>
+        <Field name="animation_vbox" type="VBox" visibility="package"/>
+        <Field name="demo_vbox" type="VBox" visibility="package"/>
+        <Field name="animation_hbox" type="HBox" visibility="package"/>
+        <Field name="requirementTitleLabel" type="Label" visibility="package"/>
+        <Field name="functionTitleLabel" type="Label" visibility="package"/>
+        <Field name="mAnalysisProcedureInfos" type="JSONArray" visibility="package"/>
+        <Field name="lastProcedureInfo" type="JSONObject" visibility="package"/>
+        <Field name="runtimeDataController" type="RuntimeDataController" visibility="package"/>
+        <Field name="FunctionAnalysisBlocks" type="Map" visibility="package"/>
+        <Field name="functionLevelList" type="List&lt;Integer&gt;" visibility="package"/>
+        <Field name="lineEndpoint" type="List&lt;Map&lt;String, Integer&gt;&gt;" visibility="package"/>
+        <Field name="RequirementAnalysisBlocks" type="Map" visibility="package"/>
+        <Field name="requirementLevelList" type="List&lt;Integer&gt;" visibility="package"/>
+        <Field name="requirementlineEndpoint" type="List&lt;Map&lt;String, Integer&gt;&gt;" visibility="package"/>
+        <Field name="timer" type="Timer" visibility="package"/>
+        <Field name="functionShowTimer" type="Timer" visibility="package"/>
+        <Field name="requirementShowTimer" type="Timer" visibility="package"/>
+        <Field name="firstRunFlag" type="boolean" visibility="package"/>
+        <Field name="faultObj" type="JSONObject" visibility="private"/>
+        <Field name="dumpInfo" type="JSONArray" visibility="private"/>
+        <Field name="faultLocalizationObj" type="JSONObject" visibility="private"/>
+        <Field name="functionAnalysisObj" type="JSONObject" visibility="private"/>
+        <Field name="reconfigurationObj" type="JSONObject" visibility="private"/>
+        <Field name="resultObj" type="JSONObject" visibility="private"/>
+        <Field name="animationDelay" type="int" visibility="package"/>
+        <Field name="demoDelay" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="RuntimeDataController" name="runtimeDataController"/>
+          <Argument type="AnchorPane" name="demonstration_panel"/>
+          <Argument type="ScrollPane" name="demonstration_scroll_panel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="check" returnType="void" visibility="public">
+          <Argument type="JSONArray" name="mAnalysisProcedureInfos"/>
+        </Method>
+        <Method name="parseAnalysisProcedure" returnType="void" visibility="private"/>
+        <Method name="animation" returnType="void" visibility="private"/>
+        <Method name="showAlert" returnType="void" visibility="private"/>
+        <Method name="showDemo" returnType="void" visibility="private">
+          <Argument type="int" name="step"/>
+        </Method>
+        <Method name="resetTimer" returnType="void" visibility="private"/>
+        <Method name="resetfunctionShowTimer" returnType="void" visibility="private"/>
+        <Method name="resetrequirementShowTimer" returnType="void" visibility="private"/>
+        <Method name="functionAnalysisAnimation" returnType="void" visibility="private"/>
+        <Method name="requirementAnalysisAnimation" returnType="void" visibility="private"/>
+        <Method name="showFunctionAnalysisDemo" returnType="void" visibility="private">
+          <Argument type="int" name="step"/>
+          <Argument type="JSONObject" name="functionObj"/>
+        </Method>
+        <Method name="showRequirementAnalysisDemo" returnType="void" visibility="private">
+          <Argument type="int" name="step"/>
+          <Argument type="JSONObject" name="requirementObj"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DetectedFaultController" package="frs.gui.controllers" visibility="public" xPosition="1000.0" yPosition="1900.0">
+      <Fields>
+        <Field name="Column1MapKey" type="String" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="Column2MapKey" type="String" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="generateDataInMap" returnType="ObservableList&lt;Map&gt;" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="FunctionsAvailabilityViewController" package="frs.gui.controllers" visibility="public" xPosition="1779.0" yPosition="549.0">
+      <Fields>
+        <Field name="mAllDataTable" type="JSONObject" visibility="private"/>
+        <Field name="functions_availability_panel" type="AnchorPane" visibility="package"/>
+        <Field name="firstRunFlag" type="boolean" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="functions_availability_panel"/>
+          <Argument type="JSONObject" name="mAllDataTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="refresh" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GraphicViewController" package="frs.gui.controllers" visibility="public" xPosition="1779.0" yPosition="1450.0">
+      <Fields>
+        <Field name="canvas_panel" type="AnchorPane" visibility="private" isFinal="true"/>
+        <Field name="gc" type="GraphicsContext" visibility="private" isFinal="true"/>
+        <Field name="imgMarginX" type="int" visibility="private" isFinal="true"/>
+        <Field name="anlageimg" type="Image" visibility="private" isFinal="true"/>
+        <Field name="firstRunFlag" type="boolean" visibility="package"/>
+        <Field name="componentPosition" type="Map&lt;Integer, double[]&gt;" visibility="private"/>
+        <Field name="mTables" type="JSONObject" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="canvas_panel"/>
+          <Argument type="Canvas" name="canvas"/>
+          <Argument type="JSONObject" name="mTables"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="generateComponentPosition" returnType="Map&lt;Integer, double[]&gt;" visibility="private"/>
+        <Method name="drawErrorRecht" returnType="void" visibility="private"/>
+        <Method name="draw" returnType="void" visibility="public"/>
+        <Method name="generateTooltip" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="SollValueViewController" package="frs.gui.controllers" visibility="public" xPosition="220.0" yPosition="1450.0">
+      <Fields>
+        <Field name="setpoint_panel" type="AnchorPane" visibility="package"/>
+        <Field name="firstRunFlag" type="boolean" visibility="package"/>
+        <Field name="sensorLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="sensorRateLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="actorLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="ventilLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="schalterLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="controllerLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="process" type="Label" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="setpoint_panel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="generate" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+        </Method>
+        <Method name="refresh" returnType="void" visibility="public">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+          <Argument type="int" name="function_id"/>
+          <Argument type="int" name="task_id"/>
+        </Method>
+        <Method name="displayProcess" returnType="void" visibility="private">
+          <Argument type="int" name="function_id"/>
+          <Argument type="int" name="task_id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="SystemInfoViewController" package="frs.gui.controllers" visibility="public" xPosition="1232.0" yPosition="130.0">
+      <Fields>
+        <Field name="grid" type="GridPane" visibility="package" isFinal="true"/>
+        <Field name="systeminfo_panel" type="AnchorPane" visibility="package"/>
+        <Field name="firstRunFlag" type="boolean" visibility="package"/>
+        <Field name="charts" type="List&lt;ChartViewContorller&gt;" visibility="package"/>
+        <Field name="sensorLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="sensorRateLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="actorLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="ventilLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="schalterLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="controllerLabelsContainer" type="List&lt;Label&gt;" visibility="package"/>
+        <Field name="process" type="Label" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="AnchorPane" name="systeminfo_panel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="refresh" returnType="void" visibility="public">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+          <Argument type="int" name="function_id"/>
+          <Argument type="int" name="task_id"/>
+        </Method>
+        <Method name="updateInfos" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+          <Argument type="int" name="function_id"/>
+          <Argument type="int" name="task_id"/>
+        </Method>
+        <Method name="generateCharts" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+        </Method>
+        <Method name="generateInfos" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+        </Method>
+        <Method name="updateChart" returnType="void" visibility="private">
+          <Argument type="JSONArray" name="allAbfComponents"/>
+        </Method>
+        <Method name="displayProcess" returnType="void" visibility="private">
+          <Argument type="int" name="function_id"/>
+          <Argument type="int" name="task_id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FRSGUISetting" package="frs.gui" visibility="public" xPosition="363.0" yPosition="1636.0">
+      <Fields>
+        <Field name="FDSAddress" type="String" visibility="public" isStatic="true"/>
+        <Field name="AbfAddress" type="String" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="FRSHttpRequestHandler" package="frs.gui" visibility="public" xPosition="130.0" yPosition="767.0">
+      <Fields>
+        <Field name="client" type="HttpClient" visibility="private" isFinal="true"/>
+        <Field name="cookieStore" type="CookieStore" visibility="private" isFinal="true"/>
+        <Field name="httpContext" type="HttpContext" visibility="private" isFinal="true"/>
+        <Field name="USER_AGENT" type="String" visibility="private" isFinal="true"/>
+        <Field name="sURL" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="URL"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="resetDatabase" returnType="JSONObject" visibility="public"/>
+        <Method name="getFaults" returnType="JSONArray" visibility="public"/>
+        <Method name="getComponents" returnType="JSONArray" visibility="public"/>
+        <Method name="getFunctions" returnType="JSONArray" visibility="public"/>
+        <Method name="getSubsystems" returnType="JSONArray" visibility="public"/>
+        <Method name="getSubfunctions" returnType="JSONArray" visibility="public"/>
+        <Method name="getMainfunctions" returnType="JSONArray" visibility="public"/>
+        <Method name="getSubsystemComponentRel" returnType="JSONArray" visibility="public"/>
+        <Method name="getComponentFunctionRel" returnType="JSONArray" visibility="public"/>
+        <Method name="getSubfunctionFunctionRel" returnType="JSONArray" visibility="public"/>
+        <Method name="getMainfunctionSubfunctionRel" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptoms" returnType="JSONArray" visibility="public"/>
+        <Method name="getLastRuntimeData" returnType="JSONObject" visibility="public"/>
+        <Method name="getRuntimeData" returnType="JSONArray" visibility="public"/>
+        <Method name="getAnalysisProcedure" returnType="JSONArray" visibility="public"/>
+        <Method name="sendPostRequest" returnType="StringBuilder" visibility="private">
+          <Argument type="String" name="url"/>
+          <Argument type="List&lt;NameValuePair&gt;" name="urlParameters"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FRSCenterController" package="frs.gui.logics" visibility="public" xPosition="100.0" yPosition="1000.0">
+      <Fields>
+        <Field name="http" type="FRSHttpRequestHandler" visibility="private"/>
+        <Field name="graphic" type="GraphicViewController" visibility="private"/>
+        <Field name="componentModel" type="ComponentModelViewController" visibility="private"/>
+        <Field name="modelTable" type="DatabaseTableViewController" visibility="private"/>
+        <Field name="functionAvailability" type="FunctionsAvailabilityViewController" visibility="private"/>
+        <Field name="componentAvailability" type="ComponentsAvailabilityViewController" visibility="private"/>
+        <Field name="timer" type="Timer" visibility="package"/>
+        <Field name="mAllDataTable" type="JSONObject" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FRSMainGUIController" name="fds_gui"/>
+          <Argument type="Canvas" name="graphic_canvas"/>
+          <Argument type="AnchorPane" name="canvas_panel"/>
+          <Argument type="AnchorPane" name="components_model_panel"/>
+          <Argument type="AnchorPane" name="functions_model_panel"/>
+          <Argument type="AnchorPane" name="requirements_model_panel"/>
+          <Argument type="AnchorPane" name="functions_availability_panel"/>
+          <Argument type="AnchorPane" name="components_availability_panel"/>
+          <Argument type="ObservableList&lt;Fault_List&gt;" name="faultData"/>
+          <Argument type="ObservableList&lt;Function_List&gt;" name="functionData"/>
+          <Argument type="ObservableList&lt;Subfunction_List&gt;" name="subfunctionData"/>
+          <Argument type="ObservableList&lt;Mainfunction_List&gt;" name="mainfunctionData"/>
+          <Argument type="ObservableList&lt;Component_List&gt;" name="componentData"/>
+          <Argument type="ObservableList&lt;Subsystem_List&gt;" name="subsystemData"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public"/>
+        <Method name="stop" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="private"/>
+        <Method name="getAllDataTables" returnType="void" visibility="private"/>
+        <Method name="getSubsystemComponentRel" returnType="JSONArray" visibility="private"/>
+        <Method name="getComponentFunctionRel" returnType="JSONArray" visibility="private"/>
+        <Method name="getSubfunctionFunctionRel" returnType="JSONArray" visibility="private"/>
+        <Method name="getMainfunctionSubfunctionRel" returnType="JSONArray" visibility="private"/>
+        <Method name="getMainfunctions" returnType="JSONArray" visibility="private"/>
+        <Method name="getSubsystems" returnType="JSONArray" visibility="private"/>
+        <Method name="getComponents" returnType="JSONArray" visibility="private"/>
+        <Method name="getFunctions" returnType="JSONArray" visibility="private"/>
+        <Method name="getSubfunctions" returnType="JSONArray" visibility="private"/>
+        <Method name="getFaults" returnType="JSONArray" visibility="private"/>
+        <Method name="resetDatabase" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="RuntimeDataController" package="frs.gui.logics" visibility="public" xPosition="220.0" yPosition="550.0">
+      <Fields>
+        <Field name="FDSRequester" type="FRSHttpRequestHandler" visibility="private"/>
+        <Field name="FDSMainGUIController" type="FRSMainGUIController" visibility="private"/>
+        <Field name="currentFunction" type="int" visibility="package"/>
+        <Field name="currentTask" type="int" visibility="package"/>
+        <Field name="timestamp" type="long" visibility="package"/>
+        <Field name="allAbfComponents" type="JSONArray" visibility="package"/>
+        <Field name="componentValueContainer" type="JSONObject" visibility="package"/>
+        <Field name="systemInfoController" type="SystemInfoViewController" visibility="package"/>
+        <Field name="sollValueController" type="SollValueViewController" visibility="package"/>
+        <Field name="demonstrationController" type="DemonstrationController" visibility="package"/>
+        <Field name="timer" type="Timer" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="FRSMainGUIController" name="FDSMainGUIController"/>
+          <Argument type="AnchorPane" name="setpoint_panel"/>
+          <Argument type="AnchorPane" name="systeminfo_panel"/>
+          <Argument type="AnchorPane" name="demonstration_panel"/>
+          <Argument type="ScrollPane" name="demonstration_scroll_panel"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="selectTabPane" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="start" returnType="void" visibility="public"/>
+        <Method name="stop" returnType="void" visibility="public"/>
+        <Method name="update" returnType="void" visibility="public"/>
+        <Method name="check" returnType="void" visibility="public"/>
+        <Method name="loadData" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MainApp" package="frs.gui" visibility="public" xPosition="1869.0" yPosition="1232.0">
+      <Fields>
+        <Field name="stage" type="Stage" visibility="public"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Stage" name="primaryStage"/>
+        </Method>
+        <Method name="gotoFRSMainGUI" returnType="void" visibility="private"/>
+        <Method name="replaceSceneContent" returnType="Initializable" visibility="private">
+          <Argument type="String" name="fxml"/>
+        </Method>
+        <Method name="getStage" returnType="Stage" visibility="public"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Component_List" package="frs.gui.models" visibility="public" xPosition="999.0" yPosition="100.0">
+      <Fields>
+        <Field name="componentId" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="componentName" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentSeries" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentType" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentSymbol" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentDesc" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentActivition" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentStatus" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="componentDate" type="StringProperty" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="componentId"/>
+          <Argument type="String" name="componentName"/>
+          <Argument type="String" name="componentSeries"/>
+          <Argument type="String" name="componentType"/>
+          <Argument type="String" name="componentSymbol"/>
+          <Argument type="String" name="componentDesc"/>
+          <Argument type="String" name="componentActivition"/>
+          <Argument type="String" name="componentStatus"/>
+          <Argument type="String" name="componentDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getcomponentId" returnType="int" visibility="public"/>
+        <Method name="setcomponentId" returnType="void" visibility="public">
+          <Argument type="int" name="componentId"/>
+        </Method>
+        <Method name="componentIdProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getcomponentName" returnType="String" visibility="public"/>
+        <Method name="setcomponentName" returnType="void" visibility="public">
+          <Argument type="String" name="componentName"/>
+        </Method>
+        <Method name="componentNameProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentSeries" returnType="String" visibility="public"/>
+        <Method name="setcomponentSeries" returnType="void" visibility="public">
+          <Argument type="String" name="componentSeries"/>
+        </Method>
+        <Method name="componentSeriesProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentType" returnType="String" visibility="public"/>
+        <Method name="setcomponentType" returnType="void" visibility="public">
+          <Argument type="String" name="componentType"/>
+        </Method>
+        <Method name="componentTypeProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentSymbol" returnType="String" visibility="public"/>
+        <Method name="setcomponentSymbol" returnType="void" visibility="public">
+          <Argument type="String" name="componentSymbol"/>
+        </Method>
+        <Method name="componentSymbolProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentDesc" returnType="String" visibility="public"/>
+        <Method name="setcomponentDesc" returnType="void" visibility="public">
+          <Argument type="String" name="componentDesc"/>
+        </Method>
+        <Method name="componentDescProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentActivition" returnType="String" visibility="public"/>
+        <Method name="setcomponentActivition" returnType="void" visibility="public">
+          <Argument type="String" name="componentActivition"/>
+        </Method>
+        <Method name="componentActivitionProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentStatus" returnType="String" visibility="public"/>
+        <Method name="setcomponentStatus" returnType="void" visibility="public">
+          <Argument type="String" name="componentStatus"/>
+        </Method>
+        <Method name="componentStatusProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getcomponentDate" returnType="String" visibility="public"/>
+        <Method name="setcomponentDate" returnType="void" visibility="public">
+          <Argument type="String" name="componentDate"/>
+        </Method>
+        <Method name="componentDateProperty" returnType="StringProperty" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Fault_List" package="frs.gui.models" visibility="public" xPosition="1636.0" yPosition="363.0">
+      <Fields>
+        <Field name="faultId" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="faultNr" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="faultName" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="faultParameter" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="faultLocation" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="symptomDesc" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="reconfCommand" type="ObjectProperty&lt;JSONObject&gt;" visibility="private" isFinal="true"/>
+        <Field name="insertDate" type="StringProperty" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="faultId"/>
+          <Argument type="int" name="faultNr"/>
+          <Argument type="String" name="faultName"/>
+          <Argument type="String" name="faultParameter"/>
+          <Argument type="String" name="faultLocation"/>
+          <Argument type="String" name="symptomDesc"/>
+          <Argument type="JSONObject" name="reconfCommand"/>
+          <Argument type="String" name="insertDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getfaultId" returnType="int" visibility="public"/>
+        <Method name="setfaultId" returnType="void" visibility="public">
+          <Argument type="int" name="faultId"/>
+        </Method>
+        <Method name="faultIdProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getfaultNr" returnType="int" visibility="public"/>
+        <Method name="setfaultNr" returnType="void" visibility="public">
+          <Argument type="int" name="faultNr"/>
+        </Method>
+        <Method name="faultNrProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getfaultName" returnType="String" visibility="public"/>
+        <Method name="setfaultName" returnType="void" visibility="public">
+          <Argument type="String" name="faultName"/>
+        </Method>
+        <Method name="faultNameProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getfaultfaultParameter" returnType="String" visibility="public"/>
+        <Method name="setfaultfaultParameter" returnType="void" visibility="public">
+          <Argument type="String" name="faultfaultParameter"/>
+        </Method>
+        <Method name="faultfaultParameterProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getfaultLocation" returnType="String" visibility="public"/>
+        <Method name="setfaultLocation" returnType="void" visibility="public">
+          <Argument type="String" name="faultLocation"/>
+        </Method>
+        <Method name="faultLocationProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getsymptomDesc" returnType="String" visibility="public"/>
+        <Method name="setsymptomDesc" returnType="void" visibility="public">
+          <Argument type="String" name="symptomDesc"/>
+        </Method>
+        <Method name="symptomDescProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getreconfCommand" returnType="JSONObject" visibility="public"/>
+        <Method name="setreconfCommand" returnType="void" visibility="public">
+          <Argument type="JSONObject" name="reconfCommand"/>
+        </Method>
+        <Method name="reconfCommandProperty" returnType="ObjectProperty&lt;JSONObject&gt;" visibility="public"/>
+        <Method name="getinsertDate" returnType="String" visibility="public"/>
+        <Method name="setinsertDate" returnType="void" visibility="public">
+          <Argument type="String" name="insertDate"/>
+        </Method>
+        <Method name="insertDateProperty" returnType="StringProperty" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Function_List" package="frs.gui.models" visibility="public" xPosition="767.0" yPosition="1869.0">
+      <Fields>
+        <Field name="functionId" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="functionDesc" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="functionStatus" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="functionDate" type="StringProperty" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="functionId"/>
+          <Argument type="String" name="functionDesc"/>
+          <Argument type="String" name="functionStatus"/>
+          <Argument type="String" name="functionDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getfunctionId" returnType="int" visibility="public"/>
+        <Method name="setfunctionId" returnType="void" visibility="public">
+          <Argument type="int" name="functionId"/>
+        </Method>
+        <Method name="functionIdProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getfunctionDesc" returnType="String" visibility="public"/>
+        <Method name="setfunctionDesc" returnType="void" visibility="public">
+          <Argument type="String" name="functionDesc"/>
+        </Method>
+        <Method name="functionDescProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getfunctionStatus" returnType="String" visibility="public"/>
+        <Method name="setfunctionStatus" returnType="void" visibility="public">
+          <Argument type="String" name="functionStatus"/>
+        </Method>
+        <Method name="functionStatusProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getfunctionDate" returnType="String" visibility="public"/>
+        <Method name="setfunctionDate" returnType="void" visibility="public">
+          <Argument type="String" name="functionDate"/>
+        </Method>
+        <Method name="functionDateProperty" returnType="StringProperty" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mainfunction_List" package="frs.gui.models" visibility="public" xPosition="130.0" yPosition="1232.0">
+      <Fields>
+        <Field name="mainfunctionId" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="mainfunctionDesc" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="mainfunctionStatus" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="mainfunctionDate" type="StringProperty" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="mainfunctionId"/>
+          <Argument type="String" name="mainfunctionDesc"/>
+          <Argument type="String" name="mainfunctionStatus"/>
+          <Argument type="String" name="mainfunctionDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getmainfunctionId" returnType="int" visibility="public"/>
+        <Method name="setmainfunctionId" returnType="void" visibility="public">
+          <Argument type="int" name="mainfunctionId"/>
+        </Method>
+        <Method name="mainfunctionIdProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getmainfunctionDesc" returnType="String" visibility="public"/>
+        <Method name="setmainfunctionDesc" returnType="void" visibility="public">
+          <Argument type="String" name="mainfunctionDesc"/>
+        </Method>
+        <Method name="mainfunctionDescProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getmainfunctionStatus" returnType="String" visibility="public"/>
+        <Method name="setmainfunctionStatus" returnType="void" visibility="public">
+          <Argument type="String" name="mainfunctionStatus"/>
+        </Method>
+        <Method name="mainfunctionStatusProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getmainfunctionDate" returnType="String" visibility="public"/>
+        <Method name="setmainfunctionDate" returnType="void" visibility="public">
+          <Argument type="String" name="mainfunctionDate"/>
+        </Method>
+        <Method name="mainfunctionDateProperty" returnType="StringProperty" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Subfunction_List" package="frs.gui.models" visibility="public" xPosition="1636.0" yPosition="1636.0">
+      <Fields>
+        <Field name="subfunctionId" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="subfunctionDesc" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="subfunctionStatus" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="subfunctionDate" type="StringProperty" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="subfunctionId"/>
+          <Argument type="String" name="subfunctionDesc"/>
+          <Argument type="String" name="subfunctionStatus"/>
+          <Argument type="String" name="subfunctionDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getsubfunctionId" returnType="int" visibility="public"/>
+        <Method name="setsubfunctionId" returnType="void" visibility="public">
+          <Argument type="int" name="subfunctionId"/>
+        </Method>
+        <Method name="subfunctionIdProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getsubfunctionDesc" returnType="String" visibility="public"/>
+        <Method name="setsubfunctionDesc" returnType="void" visibility="public">
+          <Argument type="String" name="subfunctionDesc"/>
+        </Method>
+        <Method name="subfunctionDescProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getsubfunctionStatus" returnType="String" visibility="public"/>
+        <Method name="setsubfunctionStatus" returnType="void" visibility="public">
+          <Argument type="String" name="subfunctionStatus"/>
+        </Method>
+        <Method name="subfunctionStatusProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getsubfunctionDate" returnType="String" visibility="public"/>
+        <Method name="setsubfunctionDate" returnType="void" visibility="public">
+          <Argument type="String" name="subfunctionDate"/>
+        </Method>
+        <Method name="subfunctionDateProperty" returnType="StringProperty" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Subsystem_List" package="frs.gui.models" visibility="public" xPosition="550.0" yPosition="69.0">
+      <Fields>
+        <Field name="subsystemId" type="IntegerProperty" visibility="private" isFinal="true"/>
+        <Field name="subsystemDesc" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="subsystemStatus" type="StringProperty" visibility="private" isFinal="true"/>
+        <Field name="subsystemDate" type="StringProperty" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="subsystemId"/>
+          <Argument type="String" name="subsystemDesc"/>
+          <Argument type="String" name="subsystemStatus"/>
+          <Argument type="String" name="subsystemDate"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getsubsystemId" returnType="int" visibility="public"/>
+        <Method name="setsubsystemId" returnType="void" visibility="public">
+          <Argument type="int" name="subsystemId"/>
+        </Method>
+        <Method name="subsystemIdProperty" returnType="IntegerProperty" visibility="public"/>
+        <Method name="getsubsystemDesc" returnType="String" visibility="public"/>
+        <Method name="setsubsystemDesc" returnType="void" visibility="public">
+          <Argument type="String" name="subsystemDesc"/>
+        </Method>
+        <Method name="subsystemDescProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getsubsystemStatus" returnType="String" visibility="public"/>
+        <Method name="setsubsystemStatus" returnType="void" visibility="public">
+          <Argument type="String" name="subsystemStatus"/>
+        </Method>
+        <Method name="subsystemStatusProperty" returnType="StringProperty" visibility="public"/>
+        <Method name="getsubsystemDate" returnType="String" visibility="public"/>
+        <Method name="setsubsystemDate" returnType="void" visibility="public">
+          <Argument type="String" name="subsystemDate"/>
+        </Method>
+        <Method name="subsystemDateProperty" returnType="StringProperty" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DemoViewGUI" package="frs.gui.views" visibility="public" xPosition="161.0" yPosition="69.0">
+      <Fields>
+        <Field name="title" type="Label" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="setContent" returnType="void" visibility="public">
+          <Argument type="String" name="_title"/>
+          <Argument type="String" name="_content"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FRSMainGUIController" package="frs.gui.views" visibility="public" xPosition="1232.0" yPosition="1869.0">
+      <Fields>
+        <Field name="componentTable" type="TableView&lt;Component_List&gt;" visibility="private"/>
+        <Field name="componentIdColumn" type="TableColumn&lt;Component_List, Integer&gt;" visibility="private"/>
+        <Field name="componentSymbolColumn" type="TableColumn&lt;Component_List, String&gt;" visibility="private"/>
+        <Field name="componentData" type="ObservableList&lt;Component_List&gt;" visibility="private" isFinal="true"/>
+        <Field name="functionTable" type="TableView&lt;Function_List&gt;" visibility="private"/>
+        <Field name="functionIdColumn" type="TableColumn&lt;Function_List, Integer&gt;" visibility="private"/>
+        <Field name="functionDescColumn" type="TableColumn&lt;Function_List, String&gt;" visibility="private"/>
+        <Field name="functionData" type="ObservableList&lt;Function_List&gt;" visibility="private" isFinal="true"/>
+        <Field name="subsystemTable" type="TableView&lt;Subsystem_List&gt;" visibility="private"/>
+        <Field name="subsystemIdColumn" type="TableColumn&lt;Subsystem_List, Integer&gt;" visibility="private"/>
+        <Field name="subsystemDescColumn" type="TableColumn&lt;Subsystem_List, String&gt;" visibility="private"/>
+        <Field name="subsystemData" type="ObservableList&lt;Subsystem_List&gt;" visibility="private" isFinal="true"/>
+        <Field name="subfunctionTable" type="TableView&lt;Subfunction_List&gt;" visibility="private"/>
+        <Field name="subfunctionIdColumn" type="TableColumn&lt;Subfunction_List, Integer&gt;" visibility="private"/>
+        <Field name="subfunctionDescColumn" type="TableColumn&lt;Subfunction_List, String&gt;" visibility="private"/>
+        <Field name="subfunctionData" type="ObservableList&lt;Subfunction_List&gt;" visibility="private" isFinal="true"/>
+        <Field name="mainfunctionTable" type="TableView&lt;Mainfunction_List&gt;" visibility="private"/>
+        <Field name="mainfunctionIdColumn" type="TableColumn&lt;Mainfunction_List, Integer&gt;" visibility="private"/>
+        <Field name="mainfunctionDescColumn" type="TableColumn&lt;Mainfunction_List, String&gt;" visibility="private"/>
+        <Field name="mainfunctionData" type="ObservableList&lt;Mainfunction_List&gt;" visibility="private" isFinal="true"/>
+        <Field name="faultTable" type="TableView&lt;Fault_List&gt;" visibility="private"/>
+        <Field name="faultIdColumn" type="TableColumn&lt;Fault_List, Integer&gt;" visibility="private"/>
+        <Field name="faultNameColumn" type="TableColumn&lt;Fault_List, String&gt;" visibility="private"/>
+        <Field name="reconfCommandColumn" type="TableColumn&lt;Fault_List, Object&gt;" visibility="private"/>
+        <Field name="faultData" type="ObservableList&lt;Fault_List&gt;" visibility="private" isFinal="true"/>
+        <Field name="setpoint_panel" type="AnchorPane" visibility="private"/>
+        <Field name="systeminfo_panel" type="AnchorPane" visibility="private"/>
+        <Field name="components_model_panel" type="AnchorPane" visibility="private"/>
+        <Field name="canvas_panel" type="AnchorPane" visibility="private"/>
+        <Field name="mainTabPane" type="TabPane" visibility="private"/>
+        <Field name="demonstration_scroll_panel" type="ScrollPane" visibility="private"/>
+        <Field name="system_controll_vbox" type="VBox" visibility="private"/>
+        <Field name="graphicCanvas" type="Canvas" visibility="private"/>
+        <Field name="anlage_img" type="ImageView" visibility="private"/>
+        <Field name="changeFlag" type="boolean" visibility="package"/>
+        <Field name="startFlag" type="boolean" visibility="package"/>
+        <Field name="application" type="MainApp" visibility="private"/>
+        <Field name="centerController" type="FRSCenterController" visibility="private"/>
+        <Field name="problemDiagnoseController" type="RuntimeDataController" visibility="private"/>
+        <Field name="runninglog_root" type="Parent" visibility="private"/>
+        <Field name="runninglog_stage" type="Stage" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="startApp" returnType="void" visibility="public">
+          <Argument type="MainApp" name="mainApp"/>
+        </Method>
+        <Method name="initModelTables" returnType="void" visibility="private"/>
+        <Method name="initFaultTable" returnType="void" visibility="private"/>
+        <Method name="initSubFunctionModelTable" returnType="void" visibility="private"/>
+        <Method name="initFunctionModelTable" returnType="void" visibility="private"/>
+        <Method name="initComponentModelTable" returnType="void" visibility="private"/>
+        <Method name="initSubsystemModelTable" returnType="void" visibility="private"/>
+        <Method name="initMainFunctionModelTable" returnType="void" visibility="private"/>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+        <Method name="getApplication" returnType="MainApp" visibility="public"/>
+        <Method name="setApplication" returnType="void" visibility="public">
+          <Argument type="MainApp" name="application"/>
+        </Method>
+        <Method name="selectTabPane" returnType="void" visibility="public">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="reset_database" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="open_running_log" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="problem_diagnose" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="system_info" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="system_graphic" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="ats_model" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="database_handler" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="demonstration" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="check_faults" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="detected_faults" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="load_data" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="load_framework_file" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+        <Method name="export_framework_file" returnType="void" visibility="private">
+          <Argument type="ActionEvent" name="event"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FRSRunningLogGUI" package="frs.gui.views" visibility="public" xPosition="1450.0" yPosition="1779.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initialize" returnType="void" visibility="public">
+          <Argument type="URL" name="location"/>
+          <Argument type="ResourceBundle" name="resources"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="subsystemTable" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subsystem_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableView&lt;Subsystem_List&gt;"/>
+    <HasRelation name="componentModel" source="frs.gui.logics.FRSCenterController" target="frs.gui.controllers.ComponentModelViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="subfunctionIdColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Subfunction_List, Integer&gt;"/>
+    <HasRelation name="componentTable" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Component_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableView&lt;Component_List&gt;"/>
+    <HasRelation name="subfunctionTable" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableView&lt;Subfunction_List&gt;"/>
+    <HasRelation name="componentIdColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Component_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Component_List, Integer&gt;"/>
+    <HasRelation name="modelTable" source="frs.gui.logics.FRSCenterController" target="frs.gui.controllers.DatabaseTableViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="componentAvailability" source="frs.gui.logics.FRSCenterController" target="frs.gui.controllers.ComponentsAvailabilityViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="http" source="frs.gui.logics.FRSCenterController" target="frs.gui.FRSHttpRequestHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="faultData" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Fault_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Fault_List&gt;"/>
+    <HasRelation name="faultData" source="frs.gui.controllers.DatabaseTableViewController" target="frs.gui.models.Fault_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Fault_List&gt;"/>
+    <HasRelation name="faultTable" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Fault_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableView&lt;Fault_List&gt;"/>
+    <HasRelation name="componentData" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Component_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Component_List&gt;"/>
+    <HasRelation name="componentSymbolColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Component_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Component_List, String&gt;"/>
+    <HasRelation name="demonstrationController" source="frs.gui.logics.RuntimeDataController" target="frs.gui.controllers.DemonstrationController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="subsystemDescColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subsystem_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Subsystem_List, String&gt;"/>
+    <HasRelation name="subfunctionData" source="frs.gui.controllers.DatabaseTableViewController" target="frs.gui.models.Subfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Subfunction_List&gt;"/>
+    <HasRelation name="subfunctionData" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Subfunction_List&gt;"/>
+    <HasRelation name="charts" source="frs.gui.controllers.SystemInfoViewController" target="frs.gui.controllers.ChartViewContorller" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;ChartViewContorller&gt;"/>
+    <HasRelation name="runtimeDataController" source="frs.gui.controllers.DemonstrationController" target="frs.gui.logics.RuntimeDataController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="centerController" source="frs.gui.views.FRSMainGUIController" target="frs.gui.logics.FRSCenterController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="functionData" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Function_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Function_List&gt;"/>
+    <HasRelation name="functionData" source="frs.gui.controllers.DatabaseTableViewController" target="frs.gui.models.Function_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Function_List&gt;"/>
+    <HasRelation name="subsystemData" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subsystem_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Subsystem_List&gt;"/>
+    <HasRelation name="mainfunctionDescColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Mainfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Mainfunction_List, String&gt;"/>
+    <HasRelation name="subsystemData" source="frs.gui.controllers.DatabaseTableViewController" target="frs.gui.models.Subsystem_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Subsystem_List&gt;"/>
+    <HasRelation name="mainfunctionTable" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Mainfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableView&lt;Mainfunction_List&gt;"/>
+    <HasRelation name="componentData" source="frs.gui.controllers.DatabaseTableViewController" target="frs.gui.models.Component_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Component_List&gt;"/>
+    <HasRelation name="functionIdColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Function_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Function_List, Integer&gt;"/>
+    <HasRelation name="sollValueController" source="frs.gui.logics.RuntimeDataController" target="frs.gui.controllers.SollValueViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="FDSRequester" source="frs.gui.logics.RuntimeDataController" target="frs.gui.FRSHttpRequestHandler" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="faultNameColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Fault_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Fault_List, String&gt;"/>
+    <HasRelation name="functionDescColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Function_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Function_List, String&gt;"/>
+    <HasRelation name="application" source="frs.gui.views.FRSMainGUIController" target="frs.gui.MainApp" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="subfunctionDescColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Subfunction_List, String&gt;"/>
+    <HasRelation name="functionAvailability" source="frs.gui.logics.FRSCenterController" target="frs.gui.controllers.FunctionsAvailabilityViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="systemInfoController" source="frs.gui.logics.RuntimeDataController" target="frs.gui.controllers.SystemInfoViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reconfCommandColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Fault_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Fault_List, Object&gt;"/>
+    <HasRelation name="faultIdColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Fault_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Fault_List, Integer&gt;"/>
+    <HasRelation name="graphic" source="frs.gui.logics.FRSCenterController" target="frs.gui.controllers.GraphicViewController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="frs.gui.views.FRSMainGUIController" target="frs.gui.MainApp" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="subsystemIdColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Subsystem_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Subsystem_List, Integer&gt;"/>
+    <HasRelation name="FDSMainGUIController" source="frs.gui.logics.RuntimeDataController" target="frs.gui.views.FRSMainGUIController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="mainfunctionIdColumn" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Mainfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableColumn&lt;Mainfunction_List, Integer&gt;"/>
+    <HasRelation name="problemDiagnoseController" source="frs.gui.views.FRSMainGUIController" target="frs.gui.logics.RuntimeDataController" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="functionTable" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Function_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="TableView&lt;Function_List&gt;"/>
+    <HasRelation name="mainfunctionData" source="frs.gui.views.FRSMainGUIController" target="frs.gui.models.Mainfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Mainfunction_List&gt;"/>
+    <HasRelation name="mainfunctionData" source="frs.gui.controllers.DatabaseTableViewController" target="frs.gui.models.Mainfunction_List" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ObservableList&lt;Mainfunction_List&gt;"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

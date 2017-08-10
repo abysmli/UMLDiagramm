@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="frs.server.controller">
+  <ClassDiagramComponents>
+    <Class name="FaultController" package="frs.server.controller" visibility="public" xPosition="62.0" yPosition="91.0">
+      <Fields>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="analysisProcedure" type="AnalysisProcedureGenerator" visibility="public" isFinal="true"/>
+        <Field name="faultLocalization" type="FaultLocalization" visibility="private" isFinal="true"/>
+        <Field name="functionAnalysis" type="FunctionAnalysis" visibility="private" isFinal="true"/>
+        <Field name="reconfCommandGenerator" type="ReconfCommandGenerator" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="handleFault" returnType="JSONObject" visibility="public"/>
+        <Method name="handleUnknownFault" returnType="JSONObject" visibility="private"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

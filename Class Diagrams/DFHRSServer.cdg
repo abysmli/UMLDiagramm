@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="frs.server.reasoner">
+  <ClassDiagramComponents>
+    <Class name="FaultLocalization" package="frs.server.reasoner" visibility="public" xPosition="26.0" yPosition="57.0">
+      <Fields>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="analysisProcedure" type="AnalysisProcedureGenerator" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getFaultLocation" returnType="JSONObject" visibility="public"/>
+        <Method name="symptomTypeGenerate" returnType="JSONObject" visibility="private"/>
+        <Method name="symptomGeneration" returnType="JSONObject" visibility="private"/>
+        <Method name="symptomComparation" returnType="JSONObject" visibility="private"/>
+        <Method name="checkComponentModel" returnType="JSONObject" visibility="private"/>
+        <Method name="faultDiagnosisResultAnalysis" returnType="JSONObject" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="FunctionAnalysis" package="frs.server.reasoner" visibility="public" xPosition="347.0" yPosition="57.0">
+      <Fields>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="analysisProcedure" type="AnalysisProcedureGenerator" visibility="private" isFinal="true"/>
+        <Field name="depthSearchAry" type="JSONArray" visibility="package"/>
+        <Field name="requirementDepthSearchAry" type="JSONArray" visibility="package"/>
+        <Field name="intermediateFunctionStateAry" type="JSONArray" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="analysis" returnType="String" visibility="public">
+          <Argument type="String" name="mFaultLocation"/>
+        </Method>
+        <Method name="treeDepthFirstSearchLoop" returnType="int" visibility="private">
+          <Argument type="int" name="index"/>
+        </Method>
+        <Method name="findTreeTopPoint" returnType="void" visibility="private"/>
+        <Method name="generateResult" returnType="JSONObject" visibility="private"/>
+        <Method name="indentifyNotaffectedFunctions" returnType="void" visibility="private"/>
+        <Method name="indentifyRelatedFunctions" returnType="void" visibility="private"/>
+        <Method name="indentifyAvailableFunctions" returnType="void" visibility="private"/>
+        <Method name="requirementsAnalysis" returnType="void" visibility="private"/>
+        <Method name="requirementsConsequence" returnType="void" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="ReconfCommandGenerator" package="frs.server.reasoner" visibility="public" xPosition="668.0" yPosition="57.0">
+      <Fields>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private" isFinal="true"/>
+        <Field name="analysisProcedure" type="AnalysisProcedureGenerator" visibility="private" isFinal="true"/>
+        <Field name="mFlagFunctions" type="JSONObject" visibility="private"/>
+        <Field name="mReconfCommands" type="JSONObject" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="generate" returnType="JSONObject" visibility="public"/>
+        <Method name="ReconfigurationCommandGenerator" returnType="JSONArray" visibility="private"/>
+        <Method name="RedundanzAnalyse" returnType="JSONObject" visibility="private"/>
+        <Method name="CheckRestartRequired" returnType="String" visibility="private"/>
+        <Method name="ReconfFunctionGenerator" returnType="JSONObject" visibility="private"/>
+        <Method name="ReconfRedundancyActivition" returnType="JSONObject" visibility="private"/>
+        <Method name="TaskAnalysis" returnType="JSONObject" visibility="private"/>
+        <Method name="SpecialCodeGenerator" returnType="String" visibility="private"/>
+        <Method name="PersonalData" returnType="JSONObject" visibility="private"/>
+        <Method name="SpecificMeasures" returnType="JSONObject" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="FualtDatabaseHandler" package="" visibility="public" xPosition="26.0" yPosition="363.0">
+      <Fields>
+        <Field name="dataSource" type="DataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+        <Field name="stmt" type="Statement" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="releaseConnections" returnType="void" visibility="private"/>
+        <Method name="getFaultKnowledge" returnType="JSONArray" visibility="public"/>
+        <Method name="saveFaultKnowledge" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SystemDatabaseHandler" package="" visibility="public" xPosition="335.0" yPosition="465.0">
+      <Fields>
+        <Field name="dataSource" type="DataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+        <Field name="stmt" type="Statement" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="releaseConnections" returnType="void" visibility="private"/>
+        <Method name="getReconfigurations" returnType="JSONArray" visibility="public"/>
+        <Method name="getRequirements" returnType="JSONArray" visibility="public"/>
+        <Method name="getFunctions" returnType="JSONArray" visibility="public"/>
+        <Method name="getComponents" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="SymptomDatabaseHandler" package="" visibility="public" xPosition="602.0" yPosition="467.0">
+      <Fields>
+        <Field name="dataSource" type="DataSource" visibility="private"/>
+        <Field name="connection" type="Connection" visibility="private"/>
+        <Field name="stmt" type="Statement" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="initConnections" returnType="void" visibility="public"/>
+        <Method name="releaseConnections" returnType="void" visibility="public"/>
+        <Method name="getSymptomSubsystem" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomAirpressure" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomHeating" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomInflow" returnType="JSONArray" visibility="public"/>
+        <Method name="getSymptomPumping" returnType="JSONArray" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FDSSimulatorRouter" package="" visibility="public" xPosition="31.0" yPosition="701.0">
+      <Fields>
+        <Field name="faultController" type="FaultController" visibility="package"/>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="reportFault" returnType="Response" visibility="public"/>
+        <Method name="postRuntimeData" returnType="Response" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FRSGUIRouter" package="" visibility="public" xPosition="363.0" yPosition="761.0">
+      <Fields>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getFaults" returnType="Response" visibility="public"/>
+        <Method name="getAnalysisProcedure" returnType="Response" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FaultController" package="" visibility="public" xPosition="693.0" yPosition="781.0">
+      <Fields>
+        <Field name="databaseSymptom" type="SymptomDatabaseHandler" visibility="private"/>
+        <Field name="databaseFault" type="FaultDatabaseHandler" visibility="private"/>
+        <Field name="databaseSystem" type="SystemDatabaseHandler" visibility="private"/>
+        <Field name="analysisProcedure" type="AnalysisProcedureGenerator" visibility="public"/>
+        <Field name="faultLocalization" type="FaultLocalization" visibility="private"/>
+        <Field name="reconfCommandGenerator" type="ReconfCommandGenerator" visibility="private"/>
+        <Field name="functionAnalysis" type="FunctionAnalysis" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="handleFault" returnType="JSONObject" visibility="public"/>
+        <Method name="handleUnknownFault" returnType="JSONObject" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
